@@ -24,30 +24,12 @@ export default function Contact() {
     setTimeout(() => setSubmitted(false), 3000)
   }
 
-  const contactInfo = [
-    {
-      label: 'Email',
-      value: 'tosg2001@gmail.com',
-      href: 'mailto:tosg2001@gmail.com',
-      icon: '✉',
-    },
-    {
-      label: 'Phone',
-      value: '+91 9123866071',
-      href: 'tel:+919123866071',
-      icon: '📱',
-    },
-    {
-      label: 'Location',
-      value: 'Kolkata, India',
-      href: '#',
-      icon: '📍',
-    },
-  ]
+
 
   const socialLinks = [
     { name: 'GitHub', url: 'https://github.com/sukannaghosh2001-coder', icon: 'GH' },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/sukanna-ghosh18', icon: 'in' },
+    { name: 'Email', url: 'mailto:tosg2001@gmail.com', icon: '✉' },
 
   ]
 
@@ -67,28 +49,7 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
           {/* Contact Information */}
           <div className="space-y-8">
-            <div>
-              <h3 className="text-sm font-semibold text-primary uppercase tracking-widest mb-6">Contact Information</h3>
-              <div className="space-y-6">
-                {contactInfo.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    className="group flex items-start gap-4 p-4 rounded-lg border border-border hover:border-primary hover:bg-secondary/50 transition-all"
-                  >
-                    <span className="text-2xl flex-shrink-0">{item.icon}</span>
-                    <div>
-                      <p className="text-sm text-muted-foreground group-hover:text-primary transition-colors">
-                        {item.label}
-                      </p>
-                      <p className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                        {item.value}
-                      </p>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
+
 
             <div>
               <h3 className="text-sm font-semibold text-primary uppercase tracking-widest mb-6">Connect</h3>
