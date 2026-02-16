@@ -27,8 +27,8 @@ export default function Contact() {
   const contactInfo = [
     {
       label: 'Email',
-      value: 'sukannaghosh2001@gmail.com',
-      href: 'mailto:sukannaghosh2001@gmail.com',
+      value: 'tosg2001@gmail.com',
+      href: 'mailto:tosg2001@gmail.com',
       icon: '✉',
     },
     {
@@ -46,9 +46,9 @@ export default function Contact() {
   ]
 
   const socialLinks = [
-    { name: 'GitHub', url: '#', icon: 'GH' },
-    { name: 'LinkedIn', url: '#', icon: 'in' },
-    { name: 'Twitter', url: '#', icon: 'X' },
+    { name: 'GitHub', url: 'https://github.com/sukannaghosh2001-coder', icon: 'GH' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/sukanna-ghosh18', icon: 'in' },
+
   ]
 
   return (

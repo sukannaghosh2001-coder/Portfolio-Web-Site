@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Github, Linkedin, Mail, Twitter, Instagram } from 'lucide-react'
+import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react'
 import Image from 'next/image'
 import profileImage from './image/image.jpeg'
 
@@ -60,9 +60,9 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.8 }}
             className="flex gap-6 items-center justify-center lg:justify-start mt-8 lg:mt-0"
           >
-            <a href="#" className="hover:text-yellow-400 transition-colors"><Instagram size={20} /></a>
-            <a href="#" className="hover:text-yellow-400 transition-colors"><Twitter size={20} /></a>
-            <a href="#" className="hover:text-yellow-400 transition-colors"><Linkedin size={20} /></a>
+            <a href="https://github.com/sukannaghosh2001-coder" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400 transition-colors"><Github size={20} /></a>
+            <a href="https://www.linkedin.com/in/sukanna-ghosh18" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400 transition-colors"><Linkedin size={20} /></a>
+            <a href="mailto:tosg2001@gmail.com" className="hover:text-yellow-400 transition-colors"><Mail size={20} /></a>
           </motion.div>
         </div>
 
