@@ -14,20 +14,7 @@ export default function Education() {
       cgpa: '8.52/10',
       description: 'Comprehensive foundation in computer science, mathematics, and related disciplines.',
     },
-    {
-      degree: 'Class XII (WBCHSE)',
-      institution: 'Kamala Girls School, Kolkata',
-      duration: '2020',
-      percentage: '91%',
-      description: 'Higher secondary education with strong performance in science and mathematics.',
-    },
-    {
-      degree: 'Class X (WBCHSE)',
-      institution: "Beltala Girls' High School",
-      duration: '2018',
-      percentage: '86.85%',
-      description: 'Secondary education foundation with comprehensive academic excellence.',
-    },
+
   ]
 
   return (
@@ -54,7 +41,7 @@ export default function Education() {
                 <div className="text-right">
                   <p className="text-sm text-muted-foreground mb-1">{edu.duration}</p>
                   <p className="text-2xl font-bold text-primary">
-                    {edu.cgpa || edu.percentage}
+                    {edu.cgpa}
                   </p>
                 </div>
               </div>

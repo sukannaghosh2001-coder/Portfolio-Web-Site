@@ -26,12 +26,7 @@ export default function Contact() {
 
 
 
-  const socialLinks = [
-    { name: 'GitHub', url: 'https://github.com/sukannaghosh2001-coder', icon: 'GH' },
-    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/sukanna-ghosh18', icon: 'in' },
-    { name: 'Email', url: 'mailto:tosg2001@gmail.com', icon: '✉' },
 
-  ]
 
   return (
     <section id="contact" className="min-h-screen px-6 md:px-12 py-24 flex flex-col justify-center">
@@ -51,20 +46,7 @@ export default function Contact() {
           <div className="space-y-8">
 
 
-            <div>
-              <h3 className="text-sm font-semibold text-primary uppercase tracking-widest mb-6">Connect</h3>
-              <div className="flex flex-wrap gap-4">
-                {socialLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.url}
-                    className="px-6 py-3 border border-border rounded-lg text-foreground hover:border-primary hover:text-primary transition-all font-semibold text-sm"
-                  >
-                    {link.name}
-                  </a>
-                ))}
-              </div>
-            </div>
+
           </div>
 
           {/* Contact Form */}
