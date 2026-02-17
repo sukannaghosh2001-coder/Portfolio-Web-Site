@@ -23,7 +23,7 @@ export default function About() {
             <p className="text-lg text-muted-foreground leading-relaxed">
               I'm <span className="text-primary font-bold">Sukanna Ghosh</span>, an MCA scholar at Meghnad Saha Institute of Technology.
               I specialize in <span className="text-foreground font-bold">Full Stack Development</span> with the MERN stack and have a keen eye for <span className="text-foreground font-bold">UI/UX Design</span>.
-              My goal is to bridge the gap between complex engineering and intuitive design.
+              My goal is to bridge the gap between complex engineering and intuitive design. Recognized for being a fast learner and capable of efficient multitasking.
             </p>
           </div>
 

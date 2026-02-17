@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react'
+import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react'
 import Image from 'next/image'
 import profileImage from './image/image.jpeg'
 
@@ -109,16 +109,30 @@ export default function Hero() {
               </p>
             </motion.div>
 
-            <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              onClick={() => scrollToSection('about')}
-              className="text-yellow-400 font-semibold flex items-center gap-2 mx-auto lg:mx-0 hover:gap-4 transition-all group"
-            >
-              My story
-              <ArrowRight size={16} className="group-hover:text-white transition-colors" />
-            </motion.button>
+            <div className="flex flex-row gap-4 justify-center lg:justify-start">
+              <motion.a
+                href="/cv.png"
+                download="Sukanna_Ghosh_CV.png"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                className="px-6 py-3 bg-yellow-400 text-slate-900 rounded-full font-bold flex items-center gap-2 hover:bg-yellow-300 transition-colors shadow-lg hover:shadow-yellow-400/20"
+              >
+                <Download size={18} />
+                Download CV
+              </motion.a>
+
+              <motion.button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8 }}
+                onClick={() => scrollToSection('about')}
+                className="px-6 py-3 border border-gray-600 text-white rounded-full font-semibold flex items-center gap-2 hover:bg-white/5 transition-colors"
+              >
+                My story
+                <ArrowRight size={16} />
+              </motion.button>
+            </div>
           </div>
         </div>
 

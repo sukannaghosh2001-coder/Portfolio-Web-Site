@@ -20,20 +20,20 @@ export default function Projects() {
     // Adding a placeholder project to show the grid better
     {
       id: 2,
-      name: 'Project Dashboard',
-      category: 'Frontend • React',
-      description: 'An analytical dashboard with data visualization, dark mode support, and responsive layouts.',
-      features: ['Charts', 'Dark Mode', 'Responsive'],
-      tech: ['Next.js', 'Tailwind', 'Recharts'],
+      name: 'College Event Management Portal',
+      category: 'Full Stack • MERN',
+      description: 'A full-stack web application to manage and promote college events. Features include secure user authentication, role-based access, event creation, registration, and real-time updates.',
+      features: ['Role-based Access', 'Event Registration', 'Real-time Updates'],
+      tech: ['React', 'Node.js', 'Express', 'MongoDB'],
       color: 'from-blue-500/20 to-cyan-500/20'
     },
     {
       id: 3,
-      name: 'E-commerce API',
-      category: 'Backend • Node.js',
-      description: 'A robust RESTful API for e-commerce with payment gateway integration and inventory management.',
-      features: ['Stripe Integration', 'Inventory Logic', 'Secure API'],
-      tech: ['Express', 'PostgreSQL', 'Redis'],
+      name: 'ZOO Management APP',
+      category: 'Mobile • React Native',
+      description: 'A mobile application to streamline daily zoo operations. Includes animal record management, QR code scanning for enclosure identification, diet tracking, and task monitoring.',
+      features: ['QR Scanning', 'Diet Tracking', 'Record Management'],
+      tech: ['React Native', 'JavaScript', 'Mobile'],
       color: 'from-green-500/20 to-emerald-500/20'
     }
   ]

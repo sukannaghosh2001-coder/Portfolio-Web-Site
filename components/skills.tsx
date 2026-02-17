@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Code2, Database, Layout, Server, Smartphone, Globe } from 'lucide-react'
+import { Code2, Database, Layout, Server, Smartphone, Globe, Terminal } from 'lucide-react'
 
 // Skill Data with SVG Paths
 const skillsData = {
@@ -9,6 +9,31 @@ const skillsData = {
     {
       name: 'Python',
       icon: <svg viewBox="0 0 128 128" fill="currentColor" className="w-8 h-8"><path d="M63.05 13.91c-19.3 0-21.2.6-25.1 8-.7 1.4-1.2 3.6-1.1 5 .2 3.5 3.9 6.2 7.7 5.7h17.5v6H37.8c-1.3 0-6 .2-8.3 1.2-12 5.1-13.6 19.3-3.6 28.5 2.8 2.5 5.2 3.8 9.5 5.1l5.2 1.6-4.5 1.1c-14.7 3.5-20.2 11.1-17.7 24.3 1.2 6.5 6.7 13.8 13 17 3.9 2 6 2.3 14.6 2.3h10v-16.1c0-11 5-15.6 15.6-15.8 4-.1 13.6 0 16 0 2.2 0 4.2-1.8 4.2-4v-27.4c0-23.7-2.7-32.9-29-32.9zm-4.3 10.1c2.5 0 4.5 2 4.5 4.5s-2 4.5-4.5 4.5-4.5-2-4.5-4.5 2-4.5 4.5-4.5zM98 39.5c-2.2 0-4.2 1.8-4.2 4v27.4c0 23.9 2.1 33.1 31.4 32.9 8.2-.1 13.8-.8 17.6-2.5 7.1-3.1 11.2-8.8 11.2-15.7 0-9.6-5.8-17.2-15-19.5l-5.3-1.3 4.6-1.1c14-3.5 19.5-11.4 17.1-24.8-1.5-8.2-8.4-15.8-17-18.4-3.5-1.1-6-1.2-17.7-1.1h-13v16.1c0 10.9-4.8 15.7-15.7 15.8-3.4 0-14.8-.1-17.2-.1-1.3 0-2.4.9-2.7 2.1l-.1.6v-15.1c0-2.1.2-5.4.5-7.3 1-6.1 4.7-10.9 10.7-13.5 3.5-1.6 6-1.7 16-1.7h9zm11.2 66.8c-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5-2 4.5-4.5 4.5z" /></svg>,
+      level: 'Good Knowledge'
+    },
+    {
+      name: 'JavaScript',
+      icon: <Code2 className="w-8 h-8" />,
+      level: 'Good Knowledge'
+    },
+    {
+      name: 'Java',
+      icon: <Server className="w-8 h-8" />,
+      level: 'Good Knowledge'
+    },
+    {
+      name: 'C',
+      icon: <Code2 className="w-8 h-8" />,
+      level: 'Good Knowledge'
+    },
+    {
+      name: 'HTML5',
+      icon: <Globe className="w-8 h-8" />,
+      level: 'Good Knowledge'
+    },
+    {
+      name: 'CSS3',
+      icon: <Layout className="w-8 h-8" />,
       level: 'Good Knowledge'
     }
   ],
@@ -35,12 +60,27 @@ const skillsData = {
       icon: <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8"><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624C10.337,13.382,8.976,12,6.001,12z" /></svg>,
       level: 'Moderate'
     },
+    {
+      name: 'Bootstrap',
+      icon: <Layout className="w-8 h-8" />,
+      level: 'Moderate'
+    }
   ],
   basic: [
     {
       name: 'Figma',
       icon: <svg viewBox="0 0 38 57" fill="none" className="w-6 h-8"><path fill="#1ABCF8" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" /><path fill="#0ACF83" d="M0 47.5a9.5 9.5 0 0 1 9.5-9.5H19v9.5a9.5 9.5 0 1 1-19 0z" /><path fill="#FF7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" /><path fill="#F24E1E" d="M0 9.5a9.5 9.5 0 0 0 9.5 9.5H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" /><path fill="#A259FF" d="M0 28.5a9.5 9.5 0 0 0 9.5 9.5H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" /></svg>,
       level: 'Familiar'
+    },
+    {
+      name: 'MySQL',
+      icon: <Database className="w-8 h-8" />,
+      level: 'Familiar'
+    },
+    {
+      name: 'Visual Studio Code',
+      icon: <Terminal className="w-8 h-8" />,
+      level: 'Tool'
     },
     {
       name: 'MongoDB',

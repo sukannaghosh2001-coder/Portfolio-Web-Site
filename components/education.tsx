@@ -23,7 +23,7 @@ export default function Education() {
     },
     {
       degree: 'Class X (WBCHSE)',
-      institution: 'Kamala Girls School, Kolkata',
+      institution: "Beltala Girls' High School",
       duration: '2018',
       percentage: '86.85%',
       description: 'Secondary education foundation with comprehensive academic excellence.',
@@ -63,11 +63,15 @@ export default function Education() {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mt-16 pt-16 border-t border-border">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 pt-16 border-t border-border">
           <div>
-            <h3 className="text-xs font-semibold text-primary uppercase tracking-widest mb-4">Workshops & Certifications</h3>
-            <h4 className="text-2xl font-bold text-foreground mb-6">Additional Learning</h4>
+            <h3 className="text-xs font-semibold text-primary uppercase tracking-widest mb-4">Certifications & Workshops</h3>
+            <h4 className="text-2xl font-bold text-foreground mb-6">Learning</h4>
             <ul className="space-y-4">
+              <li className="flex gap-3">
+                <span className="text-primary font-bold">•</span>
+                <span className="text-foreground">Diploma in Computer Application - WEBEL</span>
+              </li>
               <li className="flex gap-3">
                 <span className="text-primary font-bold">•</span>
                 <span className="text-foreground">Unity Game Development Workshop</span>
@@ -76,19 +80,38 @@ export default function Education() {
                 <span className="text-primary font-bold">•</span>
                 <span className="text-foreground">Arduino Hands-on Workshop</span>
               </li>
+              <li className="flex gap-3">
+                <span className="text-primary font-bold">•</span>
+                <span className="text-foreground">AI Tools Workshop 2024 - be10X</span>
+              </li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-xs font-semibold text-primary uppercase tracking-widest mb-4">Languages</h3>
-            <h4 className="text-2xl font-bold text-foreground mb-6">Communication Skills</h4>
+            <h4 className="text-2xl font-bold text-foreground mb-6">Communication</h4>
             <div className="flex flex-wrap gap-3">
-              {['Bengali', 'English', 'Hindi'].map((lang) => (
+              {['English (Professional)', 'Hindi (Professional)', 'Bangla (Native)'].map((lang) => (
                 <span key={lang} className="px-4 py-2 bg-secondary rounded-lg text-foreground font-medium">
                   {lang}
                 </span>
               ))}
             </div>
+          </div>
+
+          <div>
+            <h3 className="text-xs font-semibold text-primary uppercase tracking-widest mb-4">Interests</h3>
+            <h4 className="text-2xl font-bold text-foreground mb-6">Hobbies</h4>
+            <ul className="space-y-4">
+              <li className="flex gap-3">
+                <span className="text-primary font-bold">•</span>
+                <span className="text-foreground">Reading Story Books</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-primary font-bold">•</span>
+                <span className="text-foreground">Trying different AI models</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
