@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion'
 import { GraduationCap, Calendar, Award, Languages, Heart, BookOpen, Cpu, Gamepad2, Globe, BrainCircuit } from 'lucide-react'
 
+import { GlassCard } from '@/components/ui/glass-card'
+
 export default function Education() {
   const education = [
     {
@@ -103,7 +105,7 @@ export default function Education() {
                     <span className="w-2 h-2 bg-[#1F2937] rounded-full"></span>
                   </span>
 
-                  <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 hover:border-yellow-400/50 transition-colors duration-300 shadow-xl group">
+                  <GlassCard className="p-8">
                     <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
                       <div>
                         <h4 className="text-2xl font-bold text-white group-hover:text-yellow-400 transition-colors">{edu.degree}</h4>
@@ -121,7 +123,7 @@ export default function Education() {
                     </div>
 
                     <p className="text-gray-400 leading-relaxed">{edu.description}</p>
-                  </div>
+                  </GlassCard>
                 </motion.div>
               ))}
             </motion.div>
@@ -146,12 +148,13 @@ export default function Education() {
                   <motion.div
                     key={idx}
                     whileHover={{ scale: 1.02 }}
-                    className="flex items-center gap-4 bg-gray-800/40 border border-gray-700 p-4 rounded-xl hover:bg-gray-800 hover:border-yellow-400/30 transition-all cursor-default"
                   >
-                    <div className="p-3 bg-gray-900 rounded-lg text-yellow-400">
-                      {cert.icon}
-                    </div>
-                    <span className="font-medium text-gray-200">{cert.name}</span>
+                    <GlassCard className="flex items-center gap-4 p-4 rounded-xl hover:bg-gray-800 cursor-default">
+                      <div className="p-3 bg-gray-900 rounded-lg text-yellow-400">
+                        {cert.icon}
+                      </div>
+                      <span className="font-medium text-gray-200">{cert.name}</span>
+                    </GlassCard>
                   </motion.div>
                 ))}
               </div>
