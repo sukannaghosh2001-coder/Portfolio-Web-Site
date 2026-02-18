@@ -1,18 +1,13 @@
 'use client'
 
+import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { useEffect } from 'react'
 
 // Add type definition for the custom element to appease TypeScript
 declare global {
     namespace JSX {
         interface IntrinsicElements {
-            'dotlottie-wc': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
-                src?: string;
-                autoplay?: boolean;
-                loop?: boolean;
-                background?: string;
-            };
+            'dotlottie-wc': any;
         }
     }
 }

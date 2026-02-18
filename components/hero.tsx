@@ -1,142 +1,194 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { ArrowRight, Download, Github, Linkedin, Mail, MousePointer2 } from 'lucide-react'
 import Image from 'next/image'
 import profileImage from './image/image.jpeg'
+import { useRef } from 'react'
 
 export default function Hero() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    element?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const containerRef = useRef(null)
+  const { scrollY } = useScroll()
+
+  // Parallax effects
+  const y1 = useTransform(scrollY, [0, 500], [0, 200])
+  const y2 = useTransform(scrollY, [0, 500], [0, -150])
+  const opacity = useTransform(scrollY, [0, 300], [1, 0])
 
   return (
-    <section className="relative min-h-screen bg-[#1F2937] text-white overflow-hidden flex flex-col justify-center px-6 md:px-12 py-12">
-      {/* Background Elements if needed, keeping it clean for now as per ref */}
+    <section
+      ref={containerRef}
+      className="relative min-h-screen bg-[#1F2937] text-white overflow-hidden flex flex-col justify-center"
+    >
+      {/* Abstract Background Shapes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-gradient-to-r from-yellow-400/10 to-transparent blur-[100px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-gradient-to-l from-purple-500/10 to-transparent blur-[100px]" />
+      </div>
 
-      <div className="max-w-7xl mx-auto w-full h-full flex flex-col lg:grid lg:grid-cols-12 gap-8 items-center relative z-10">
+      {/* Grid Background Overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
-        {/* LEFT COLUMN: Logo (simulated), Name, Socials */}
-        <div className="lg:col-span-4 flex flex-col justify-between h-full lg:h-[80vh] w-full text-center lg:text-left order-2 lg:order-1">
-          {/* Top Logo Area */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="hidden lg:block mb-12"
-          >
-            <div className="w-12 h-12 bg-yellow-400 rounded-b-full rounded-tr-full flex items-center justify-center text-slate-900 font-bold text-xl">
-              S
-            </div>
-          </motion.div>
+      <div className="max-w-7xl mx-auto w-full px-6 md:px-12 relative z-10 grid lg:grid-cols-2 gap-12 items-center min-h-screen">
 
-          {/* Name */}
-          <div className="flex flex-col justify-center flex-grow py-8 lg:py-0 relative z-20">
-            <motion.h1
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-hastegi text-6xl md:text-8xl font-bold leading-tight tracking-tight relative"
-            >
-              Sukanna <br />
-              <span className="relative inline-block">
-                Ghosh
-                <span className="text-yellow-400">.</span>
-              </span>
-            </motion.h1>
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="h-2 w-24 bg-yellow-400 mt-6 mx-auto lg:mx-0"
-            />
-          </div>
+        {/* Left Content */}
+        <motion.div style={{ y: y1 }} className="flex flex-col gap-8 order-2 lg:order-1">
 
-          {/* Socials */}
+          {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-            className="flex gap-6 items-center justify-center lg:justify-start mt-8 lg:mt-0"
+            transition={{ duration: 0.5 }}
+            className="flex items-center gap-2 w-fit px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm"
           >
-            <a href="https://github.com/sukannaghosh2001-coder" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400 transition-colors"><Github size={20} /></a>
-            <a href="https://www.linkedin.com/in/sukanna-ghosh18" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-400 transition-colors"><Linkedin size={20} /></a>
-            <a href="mailto:tosg2001@gmail.com" className="hover:text-yellow-400 transition-colors"><Mail size={20} /></a>
+            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            <span className="text-sm font-medium text-gray-300">Available for projects</span>
           </motion.div>
-        </div>
 
-        {/* MIDDLE COLUMN: Image */}
-        <div className="lg:col-span-4 flex items-end justify-center h-[50vh] lg:h-[80vh] w-full relative order-1 lg:order-2">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="relative w-full h-full flex items-end justify-center"
+          {/* Main Title */}
+          <div className="space-y-2">
+            <div className="overflow-hidden">
+              <motion.h1
+                initial={{ y: 100 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.8, ease: [0.2, 0.65, 0.3, 0.9] }}
+                className="text-6xl md:text-8xl font-bold font-hastegi leading-[1.1] tracking-tight"
+              >
+                Sukanna
+              </motion.h1>
+            </div>
+            <div className="overflow-hidden">
+              <motion.h1
+                initial={{ y: 100 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1, ease: [0.2, 0.65, 0.3, 0.9] }}
+                className="text-6xl md:text-8xl font-bold font-hastegi leading-[1.1] tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-500"
+              >
+                Ghosh
+                <motion.span
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.8 }}
+                  className="text-yellow-400 inline-block ml-2"
+                >.</motion.span>
+              </motion.h1>
+            </div>
+          </div>
+
+          {/* Bio */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-xl text-gray-400 max-w-lg leading-relaxed"
           >
-            {/* Gradient behind image to blend if needed, or just the image */}
-            <div className="relative flex items-end justify-center">
+            Full Stack Developer & UI/UX Designer crafting meaningful digital experiences with modern technologies.
+          </motion.p>
+
+          {/* Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="flex flex-wrap gap-4"
+          >
+            <button className="group relative px-8 py-4 bg-yellow-400 text-slate-900 rounded-full font-bold flex items-center gap-3 overflow-hidden transition-all hover:scale-105 active:scale-95">
+              <span className="relative z-10 flex items-center gap-2">
+                Download CV <Download size={20} />
+              </span>
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            </button>
+            <button className="group px-8 py-4 border border-white/20 hover:border-white/40 text-white rounded-full font-semibold flex items-center gap-3 transition-all hover:bg-white/5">
+              My Work <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
+            </button>
+          </motion.div>
+
+          {/* Socials */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 1 }}
+            className="flex gap-6 text-gray-400 pt-4"
+          >
+            {[
+              { Icon: Github, href: 'https://github.com/sukannaghosh2001-coder' },
+              { Icon: Linkedin, href: 'https://www.linkedin.com/in/sukanna-ghosh18' },
+              { Icon: Mail, href: 'mailto:tosg2001@gmail.com' },
+            ].map(({ Icon, href }, i) => (
+              <a
+                key={i}
+                href={href}
+                target={href.startsWith('mailto') ? undefined : '_blank'}
+                rel={href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+                className="hover:text-yellow-400 transition-colors hover:scale-110 transform"
+              >
+                <Icon size={24} />
+              </a>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        {/* Right Image/Visual */}
+        <motion.div
+          style={{ y: y2 }}
+          className="relative h-full flex items-center justify-center lg:justify-end order-1 lg:order-2"
+        >
+          <div className="relative w-full max-w-md aspect-[4/5]">
+            {/* Rotating Circle Decoration */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute -top-12 -right-12 w-full h-full border border-yellow-400/20 rounded-full sm:block hidden"
+            />
+
+            {/* Main Image Container with Reveal Effect */}
+            <motion.div
+              initial={{ clipPath: 'inset(100% 0 0 0)' }}
+              animate={{ clipPath: 'inset(0% 0 0 0)' }}
+              transition={{ duration: 1.2, ease: [0.2, 0.65, 0.3, 0.9], delay: 0.2 }}
+              className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1F2937] via-transparent to-transparent z-10 opacity-60" />
               <Image
                 src={profileImage}
                 alt="Sukanna Ghosh"
-                className="w-auto h-auto max-h-[600px] z-10 rounded-3xl border-4 border-white/20 shadow-2xl"
+                fill
+                className="object-cover scale-110 hover:scale-100 transition-transform duration-700"
                 priority
               />
-            </div>
-          </motion.div>
-        </div>
-
-        {/* RIGHT COLUMN: Nav Links, Bio */}
-        <div className="lg:col-span-4 flex flex-col justify-between h-full lg:h-[80vh] w-full text-center lg:text-left order-3">
-
-
-          {/* Bio Content */}
-          <div className="flex flex-col justify-center flex-grow py-8 lg:py-0">
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <p className="text-gray-400 uppercase tracking-widest text-xs font-semibold mb-4">— Introduction</p>
-              <h2 className="text-2xl md:text-3xl font-bold mb-6 leading-snug">
-                Full Stack Developer & <br />
-                UI/UX Designer, based in <br />
-                West Bengal.
-              </h2>
-              <p className="text-gray-400 text-sm leading-relaxed mb-8 max-w-sm mx-auto lg:mx-0">
-                I craft beautiful, responsive web applications with modern technologies.
-                Passionate about creating digital experiences that leave a lasting impression.
-              </p>
             </motion.div>
 
-            <div className="flex flex-row gap-4 justify-center lg:justify-start">
-              <motion.a
-                href="/cv.png"
-                download="Sukanna_Ghosh_CV.png"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
-                className="px-6 py-3 bg-yellow-400 text-slate-900 rounded-full font-bold flex items-center gap-2 hover:bg-yellow-300 transition-colors shadow-lg hover:shadow-yellow-400/20"
-              >
-                <Download size={18} />
-                Download CV
-              </motion.a>
-
-              <motion.button
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.8 }}
-                onClick={() => scrollToSection('about')}
-                className="px-6 py-3 border border-gray-600 text-white rounded-full font-semibold flex items-center gap-2 hover:bg-white/5 transition-colors"
-              >
-                My story
-                <ArrowRight size={16} />
-              </motion.button>
-            </div>
+            {/* Floating Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1.4, duration: 0.8 }}
+              className="absolute bottom-8 -left-12 bg-[#1F2937]/90 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-xl z-20 flex items-center gap-4 max-w-xs"
+            >
+              <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center text-slate-900">
+                <MousePointer2 size={20} />
+              </div>
+              <div>
+                <p className="text-sm font-bold text-white">Interactive Design</p>
+                <p className="text-xs text-gray-400">Focus on user experience</p>
+              </div>
+            </motion.div>
           </div>
-        </div>
-
+        </motion.div>
       </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        style={{ opacity }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500"
+      >
+        <span className="text-xs uppercase tracking-widest">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="w-1 h-8 bg-gradient-to-b from-yellow-400 to-transparent rounded-full"
+        />
+      </motion.div>
     </section>
   )
 }
