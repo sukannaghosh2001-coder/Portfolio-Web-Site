@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import Image from 'next/image'
+import profileImage from './image/image.jpeg'
 
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false)
@@ -53,12 +55,21 @@ export default function Header() {
                             : "bg-transparent border-transparent"
                     )}
                 >
-                    <div
+                    {/* Profile Image with Roll Effect */}
+                    <motion.div
+                        whileHover={{ rotate: 360 }}
+                        transition={{ duration: 1.5, ease: "easeInOut" }}
                         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                        className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary/20 transition-colors mr-2 md:mr-4 border border-primary/10"
+                        className="relative w-10 h-10 rounded-full overflow-hidden cursor-pointer border border-primary/20 hover:opacity-80 md:mr-4 mr-2"
                     >
-                        <span className="font-bold text-primary text-xl">S</span>
-                    </div>
+                        <Image
+                            src={profileImage}
+                            alt="Profile"
+                            fill
+                            className="object-cover"
+                            sizes="40px"
+                        />
+                    </motion.div>
 
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex items-center">
@@ -68,20 +79,28 @@ export default function Header() {
                                     <button
                                         onClick={() => scrollToSection(link.id)}
                                         className={cn(
-                                            "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 relative",
+                                            "relative px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 overflow-hidden group",
                                             activeSection === link.id
                                                 ? "text-primary-foreground"
-                                                : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                                                : "text-muted-foreground hover:text-foreground"
                                         )}
                                     >
                                         {activeSection === link.id && (
                                             <motion.div
                                                 layoutId="activeTab"
-                                                className="absolute inset-0 bg-primary rounded-full"
+                                                className="absolute inset-0 bg-primary rounded-full z-0"
                                                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                                             />
                                         )}
-                                        <span className="relative z-10">{link.name}</span>
+
+                                        <div className="relative z-10 flex flex-col items-center justify-center h-5 overflow-hidden">
+                                            <span className="block transition-transform duration-500 group-hover:-translate-y-full">
+                                                {link.name}
+                                            </span>
+                                            <span className="block absolute top-0 transition-transform duration-500 translate-y-full group-hover:translate-y-0">
+                                                {link.name}
+                                            </span>
+                                        </div>
                                     </button>
                                 </li>
                             ))}

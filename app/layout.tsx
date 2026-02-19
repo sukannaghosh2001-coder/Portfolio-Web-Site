@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 
 import './globals.css'
@@ -16,11 +16,18 @@ export const metadata: Metadata = {
   title: 'Sukanna Ghosh - Full Stack Developer & UI/UX Designer',
   description: 'Portfolio of Sukanna Ghosh, an MCA student specializing in full-stack web development with expertise in React, MERN stack, and UI/UX design.',
   generator: 'v0.app',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    userScalable: false,
+  icons: {
+    icon: '/profile-icon.jpeg',
+    shortcut: '/profile-icon.jpeg',
+    apple: '/profile-icon.jpeg',
   },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 }
 
 export default function RootLayout({
